@@ -1,0 +1,306 @@
+
+:root {
+    font-size: 10px;
+}
+
+
+body {
+    font-family: "Open Sans", Arial, sans-serif;
+    min-height: 100vh;
+    background-color: #000000;
+    color: #ffffff;
+    padding-bottom: 3rem;
+    /* making a darkmode theme page */
+}
+
+img {
+    display: block;
+    background-color: rgb(255, 255, 255);
+    /* added bg colour for the transparent images so that they dont just float */
+}
+
+
+.container {
+    max-width: 93.5rem;
+    margin: 0 auto;
+}
+
+.btn {
+    display: inline-block;
+    font: inherit;
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+    cursor: pointer;
+}
+
+
+
+.visually-hidden {
+    /* getitng rid of the gallary wording for the images that i assumed go on the top right of the images */
+    display: none;
+}
+
+
+
+.profile {
+    padding: 5rem 0;
+    
+}
+
+.profile::after {
+    content: "";
+    display: block;
+    clear: both;
+    padding-top: 3rem;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.3);
+    /* this was mainly to add that white line at the bottom just for a cleaner look */
+}
+
+
+.profile-image {
+    
+    float: left;
+    width: calc(33.333% - 1rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8rem;
+/* 
+   keeping the pfp in the left side constantly */
+}
+
+
+
+.profile-image img {
+    border-radius: 50%;
+    background-color: #999;
+    width: 70%;
+    height: auto;
+
+    /* making the image round */
+}
+
+
+.profile-user-settings {
+    margin-top: 1.1rem;
+}
+
+.profile-user-name {
+    display: inline-block;
+    font-size: 3.2rem;
+    font-weight: 300;
+    /* making it in line with the edit button */
+}
+
+.profile-edit-btn {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    border: 0.1rem solid #000000;
+    background-color: #3f3f3f;
+    border-radius: 0.7rem;
+    padding: 0 1.2rem;
+    margin-left: 2rem;
+    
+}
+
+
+.profile-settings-btn {
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+.profile-stats {
+    margin-top: 2rem;
+}
+
+.profile-stats li {
+    display: inline-block;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin-right: 4rem;
+    cursor: pointer;
+    /* had to google how to do this, but making it no longer listed adn making it seem just as text and nicely spaced */
+}
+
+
+.profile-bio {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 2.3rem;
+}
+
+
+.gallery {
+
+    /* all to get it in the nice 3 columns like how instagram does it */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    /* giving it a little bit of space in between images */
+    grid-gap: 2px;
+
+}
+
+
+.gallery-item {
+    cursor: pointer;
+    position: relative;
+    margin: 0.2rem;
+    color: #fff;
+}
+
+.gallery-item:hover .gallery-item-info,
+.gallery-item:focus .gallery-item-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* had to google a bit how to do this too, but all this is to add the hover grey effect when u have mouse over image */
+}
+
+.gallery-item-info {
+    display: none;
+}
+
+.gallery-item-info li {
+    display: inline-block;
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.gallery-item-likes {
+    margin-right: 2.2rem;
+}
+
+.gallery-item-type {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2.5rem;
+    text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
+    /* these are for the icons to put them in the top right position of its alocated imaged */
+}
+
+
+.gallery-image {
+    object-fit: cover;
+    width: 100%;
+    height: 30rem;
+
+}
+
+
+
+.loader {
+    width: 30px;
+    height: 30px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    border-right-color: rgba(255, 255, 255, 0.7);
+    margin: 0 auto;
+    margin-top: 3rem;
+    animation: loader 0.8s linear infinite;
+    /* a simple but clean loading circle , nothing too fancy */
+}
+
+@keyframes loader {
+     from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+  /* essentially just a rotating animation */
+}
+
+
+@media screen and (max-width: 900px) {
+    /* all this was a bit tough, but after googling and some expermentation, got to figure out a little bit of flex for the header part, and grid
+    for the images to keep them the same as you would full screen but just smaller */
+
+    .profile {
+        flex-wrap: wrap;
+        padding: 3rem 0;
+    }
+
+    .profile-stats li {
+        font-size: 1.4rem;
+        flex: 1;
+        margin: 0;
+    }
+    
+     .profile-stats ul {
+        display: flex;
+        text-align: center;
+        padding: 1.2rem 0;
+    }    
+
+    .profile-stat-count {
+        display: block;
+    }
+
+
+    
+
+    .profile-user-name {
+        font-size: 2rem;
+        padding-right: 2rem;
+    }
+
+    .profile-edit-btn {
+        margin-left: 0;
+    }
+
+    .profile-bio {
+        font-size: 1.4rem;
+        margin-top: 1.5rem;
+        padding-left: 25%;
+    }
+
+    
+    .profile-stats {
+        flex-basis: 100%;
+    }
+    
+
+
+    .profile-settings-btn {
+        display: none;
+    }
+        
+
+    /* all the profile stuff was just to get the image by itself on the left the whole time which was more a hassle than it should have
+    been  */
+
+    .gallery {
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        justify-content: center;
+
+    }
+
+    .gallery-image {
+        object-fit: cover;
+        width: 100%;
+        height: 15rem;
+    }
+   
+    /* and the grid here was just to make it seem how it does full screen, so that you still see 3 columns but smaller in a smaller phone or tablet
+    view */
+}
+
+  
+
+    
+
+
+
+
+
+
